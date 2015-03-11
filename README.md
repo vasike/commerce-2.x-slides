@@ -1,14 +1,15 @@
 # Commerce 2.x Presentation
 
-To view these slides head to http://dwkitchen.github.io/commerce-2.x-slides
+To view these slides head to http://vasike.github.io/commerce-2.x-slides
 
 ## Contributors
 
-The content of the presentation has been curated by 
+The content of the presentation has been curated by
 
 * Ryan Szrama
 * Bojan Zivanovic
 * David Kitchen
+* Tavi Toporjinschi
 
 ## License
 
