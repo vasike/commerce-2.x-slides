@@ -1,51 +1,51 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>Drupal Commerce 2.x</title>
+    <title>Drupal Commerce 2.x</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
                 <section>
                     <h1>Drupal Commerce 2.x</h1>
-                    <h2>Drupal Camp London 2015</h2>
+                    <h2>Drupal Camp Cluj Napoca 2015</h2>
                     <p>
                         <small>
-                            Presented by David Kitchen / <a href="http://twitter.com/dwkitchen">@dwkitchen</a>
+                            Presented by Tavi Toporjinschi / <a href="https://drupal.org/u/vasike">@vasike</a>
                         </small>
                     </p>
                 </section>
@@ -56,10 +56,10 @@
                     </section>
 
                     <section>
-                        <h3>David Kitchen</h3>
-                        <img src="assets/images/dwkitchen.jpg" class="stretch" />
-                        <p>Technical Lead for Commerce Guys UK<br />
-                            Tax specialist and Commerce Contributor</p>
+                        <h3>Tavi Toporjinschi</h3>
+                        <img src="assets/images/tavitoporjinschi.jpg" class="stretch" />
+                        <p>Drupal Developer for Commerce Guys UK<br />
+                            Drupal & Commerce Contributor</p>
                     </section>
 
                     <section>
@@ -270,7 +270,7 @@ echo $usdPrice;
                     </section>
 
                     <section>
-                        <h4>Currency Formatting</h4>
+                        <h4>Price Formatting</h4>
                         <pre><code>
 use CommerceGuys\Intl\Currency\CurrencyRepository;
 use CommerceGuys\Intl\NumberFormat\NumberFormatRepository;
@@ -472,22 +472,27 @@ $resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
                         <h4>Full Data inc. Historic Rates</h4>
                         <pre><code>
 {
-"name": "British VAT",
-"zone": "gb_vat",
+"name": "Romanian VAT",
+"zone": "ro_vat",
 "tag": "EU",
 "rates": [
     {
-    "id": "gb_vat_standard",
+    "id": "ro_vat_standard",
     "name": "Standard",
     "display_name": "% VAT",
     "default": true,
     "amounts": [
-    {
-        "id": "gb_vat_standard_1991",
-        "amount": 0.175,
-        "start_date": "1991-03-19",
-        "end_date": "2008-11-30"
-        },
+      {
+        "id": "ro_vat_standard_2007",
+        "amount": 0.19,
+        "start_date": "2007-01-01",
+        "end_date": "2010-06-30"
+      },
+      {
+        "id": "ro_vat_standard_2010",
+        "amount": 0.24,
+        "start_date": "2010-07-01"
+      }
                         </code></pre>
                     </section>
 
@@ -587,37 +592,37 @@ namespace Drupal\commerce\Entity
                     </p>
                 </section>
 
-			</div>
+      </div>
 
-		</div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>
