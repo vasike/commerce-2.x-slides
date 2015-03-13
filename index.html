@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/league.css" id="theme">
-		<link rel="stylesheet" href="assets/stylesheets/styles.css"> <!-- Just a few changes, not worth a whole theme. -->
+    <link rel="stylesheet" href="assets/stylesheets/styles.css"> <!-- Just a few changes, not worth a whole theme. -->
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -101,6 +101,9 @@
                         <h2>Relies on "essential contribs" and distributions to complete the experience</h2>
                     </section>
                     <section>
+                      <img src="assets/images/ck.png" style="border: 0; padding: 15px;"  />
+                    </section>
+                    <section>
                         <h2>We're doing something right...</h2>
                         <img src="assets/images/usage-stats.png" />
                     </section>
@@ -108,13 +111,28 @@
                 </section>
 
                 <section>
+                  <section>
+                    <img src="assets/images/dc.png" style="border: 0; padding: 15px;"  />
+                    <h2>Drupal Commerce 2.x</h2>
+                    </section>
+
+                  <section>
+                      <h2>Drupal Commerce 2.x Sprint</h2>
+                      <img src="assets/images/paris-sprint.jpg" class="stretch" />
+                      <p>Validated the architecture with members of SensioLabs, Smile, Publicis Modem, OSInet, i-KOS, Adyax, Ekino, and others.</p>
+                  </section>
+                </section>
+
+                <section>
                     <section>
+                        <h2>PHP Libraries</h2>
+                        <p>powered by CommerceGuys</p>
+                        <br />
                         <img src="assets/images/symfony_white_01.svg" style="border: 0; padding: 15px;"  />
-                        <h2>Symfony PHP Libraries</h2>
                     </section>
 
                     <section>
-                        <h3>We* started with research</h3>
+                        <h2>We* started with research</h2>
 
                         <p><small>*Led by Bojan Zivanovic.</small></p>
 
@@ -128,7 +146,7 @@
                     </section>
 
                     <section>
-                        <h3>Identifying our Weaknesses</h3>
+                        <h2>Identifying our Weaknesses</h2>
 
                         <ul>
                             <li>Age old tax management issues</li>
@@ -140,7 +158,7 @@
                     </section>
 
                     <section>
-                        <h3>Proposing Standalone Solutions</h3>
+                        <h2>Proposing Standalone Solutions</h2>
 
                         <ul>
                             <li>Internationalization (esp. currency formatting)</li>
@@ -177,7 +195,8 @@
 
                     <!-- commerceguys/intl -->
                     <section>
-                        <h3><a href="https://github.com/commerceguys/intl" >intl</a></h3>
+                        <h2><a href="https://github.com/commerceguys/intl" >intl</a></h2>
+
                         <ul>
                             <li>Number Formatter, inspired by intl.</li>
                             <li>Currencies</li>
@@ -203,26 +222,26 @@
                     </section>
 
                     <section>
-                        <h4>Currency handling</h4>
+                        <h2>Currency handling</h2>
                         <p>$ &cent &pound p &yen &#8356; &#8359; &euro; &#x20B9; &#x20a9; &#x20b4; &#x20af; &#x20ae; &#x20b2; &#x20b3; &#x20b5; &#x20ad; &#x20aa; &#x20ab;</p>
                     </section>
 
                     <section>
-                        <h4>Currency formatting</h4>
-                        <p class="fragment">€12,345.99</p>
+                        <h2>Currency formatting</h2>
                         <p class="fragment">12 345,99 €</p>
+                        <p class="fragment">€12,345.99</p>
                         <p class="fragment">12.345,99 €</p>
                         <p class="fragment">د.إ.‏ ٩٩٩٫٩٩</p>
                     </section>
 
                     <!-- commerceguys/pricing -->
                     <section>
-                        <h3><a href="https://github.com/commerceguys/pricing">pricing</a></h3>
+                        <h2><a href="https://github.com/commerceguys/pricing">pricing</a></h2>
                         <p>A price is a value object. Each operation (add, subtract, multiply, divide, round) produces a new price instance. All amounts are passed as strings, and manipulated using bcmath.</p>
                     </section>
 
                     <section>
-                        <h4>Creating prices</h4>
+                        <h3>Creating prices</h3>
                         <pre><code>
 use CommerceGuys\Intl\Currency\CurrencyRepository;
 use CommerceGuys\Pricing\Price;
@@ -237,7 +256,7 @@ $thirdPrice  = new Price('20.307', $currency);
                     </section>
 
                     <section>
-                        <h4>Price operations</h4>
+                        <h3>Price operations</h3>
                         <pre><code>
 // Every operation produces a new Price instance.
 $total = $firstPrice
@@ -331,17 +350,17 @@ foreach ($states as $state) {
                     </section>
 
                     <section>
-                        <h4>What fields?</h4>
+                        <h3>What fields?</h3>
                         <img src="assets/images/amazon_us.jpg" style="border: 0; padding: 15px;"  />
                     </section>
 
                     <section>
-                        <h4>Somewhere else</h4>
+                        <h3>Somewhere else</h3>
                         <img src="assets/images/amazon_jp.jpg" style="border: 0; padding: 15px;"  />
                     </section>
 
                     <section>
-                        <h4>Address format</h4>
+                        <h2>Address format</h2>
                         <ul>
                             <li>Which fields are used, and in which order</li>
                             <li>Which fields are required</li>
@@ -352,13 +371,20 @@ foreach ($states as $state) {
                     </section>
 
                     <section>
-                        <h4>Address Formatting</h4>
+                        <h2>Address Formatting</h2>
                             <pre><code>
 use CommerceGuys\Addressing\Formatter\PostalFormatter;
 use CommerceGuys\Addressing\Provider\DataProvider;
 
 $dataProvider = new DataProvider();
 $formatter = new PostalFormatter($dataProvider);
+
+$address = new Address();
+$address
+    ->setCountryCode('CH')
+    ->setPostalCode('8184')
+    ->setAddressLine1('Schulweg 4')
+    ->setLocality('Bachenbülach');
 
 // Format an address for sending from Switzerland, in French.
 // If the address destination is not Switzerland, the country name will be
@@ -369,11 +395,17 @@ echo $formatter->format($address, 'CH', 'fr');
 
                     <!-- commerceguys/zone -->
                     <section>
-                        <h3><a href="https://github.com/commerceguys/zone" >zone</a></h3>
-                        <p>Zones are territorial groupings mostly used for shipping or tax purposes. For example, a set of shipping rates associated with a zone where the rates become available only if the customer's address matches the zone.</p>
-                        <p>A zone can match other zones, countries, subdivisions (states/provinces/municipalities), postal codes. Postal codes can also be expressed using ranges or regular expressions.</p>
+                        <h2><a href="https://github.com/commerceguys/zone" >zone</a></h2>
+                        <p>Zones are territorial groupings mostly used for shipping or tax purposes.</p>
+                        <p>A zone can match other zones, countries, subdivisions (states/provinces/municipalities), postal codes.</p>
+
                         <aside class="notes">
                             Used for shipping, taxes; EU (list of 28 countries), etc.
+                            Examples of zones:
+                            Belgium, Netherlands, Luxemburg
+                            European Union
+                            Germany and a set of 4 Austrian postal codes
+                            Austria without specific those postal codes
                         </aside>
                     </section>
 
@@ -407,6 +439,7 @@ $zone->addMember($austriaZoneMember);
                     </section>
 
                     <section>
+                        <h2>Zone matcher</h2>
                         <p>Initialising a zone matcher.</p>
                         <pre><code>
 use CommerceGuys\Addressing\Model\Address;
@@ -416,8 +449,11 @@ use CommerceGuys\Zone\Repository\ZoneRepository;
 $repository = new ZoneRepository('resources/zone');
 $matcher = new ZoneMatcher($repository);
                         </code></pre>
+                        <aside class="notes">A matcher class is provided for the use case where an address should be matched against all zones in the system, with the matched zones ordered by priority.
+                        </aside>
                     </section>
                     <section>
+                        <h2>Zone matcher</h2>
                         <p>Create an address.</p>
                         <pre><code>
 $austrianAddress = new Address();
@@ -433,7 +469,7 @@ $zones = $matcher->matchAll($austrianAddress, 'tax');
 
                     <!-- commerceguys/tax -->
                     <section>
-                        <h3><a href="https://github.com/commerceguys/tax">tax</a></h3>
+                        <h2><a href="https://github.com/commerceguys/tax">tax</a></h2>
                         <ul>
                             <li class="fragment">Smart data model designed for fluctuating tax rate amounts ("19% -> 21% on January 1st").</li>
                             <li class="fragment">Predefined tax rates and zones for EU countries, Iceland, Norway, South Africa and Switzerland. More to come.</li>
@@ -442,7 +478,7 @@ $zones = $matcher->matchAll($austrianAddress, 'tax');
                     </section>
 
                     <section>
-                        <h4>EU Tax Resolver</h4>
+                        <h2>EU Tax Resolver</h2>
                         <pre><code>
 use CommerceGuys\Tax\Repository\TaxTypeRepository;
 use CommerceGuys\Tax\Resolver\Engine\TaxTypeResolverEngine;
@@ -460,13 +496,14 @@ $resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
                         </code></pre>
                     </section>
                     <section>
-                        <h4>Calculates the VAT rate based on</h4>
+                        <h2>Calculates the VAT rate based on</h2>
                         <ul>
                             <li>Goods or Services</li>
                             <li>Type of service, digital, education</li>
                             <li>B2C or B2B</li>
                             <li>Supplier location</li>
                             <li>Customer Location</li>
+                            <li>Date</li>
                         </ul>
                     </section>
                     <section>
@@ -512,11 +549,6 @@ $resolver = new TaxResolver($taxTypeResolverEngine, $taxRateResolverEngine);
                     </section>
 
                     <section>
-                        <h3>Drupal Commerce 2.x Sprint</h3>
-                        <img src="assets/images/paris-sprint.jpg" class="stretch" />
-                        <p>Validated the architecture with members of SensioLabs, Smile, Publicis Modem, OSInet, i-KOS, Adyax, Ekino, and others.</p>
-                    </section>
-                    <section>
                         <h3>Once again, we start from scratch</h3>
                         <pre><code class="php hljs">
 &lt;?php
@@ -554,30 +586,33 @@ namespace Drupal\commerce\Entity
                         <img src="assets/images/workflow.png"  class="stretch" style="border:0; padding: 15px;" />
                     </section>
                     <section>
-                        <h3>Improved Payment Processing</h3>
-                        <p>Create a "mini" ledger for payments with double entry like accounting features.</p>
+                        <h2>Payments</h2>
+                        <pre><code>// no code yet.</code></pre>
+                        <ul>
+                            <li>Improve Management</li>
+                            <li>Concept of Modes: Live/Sandbox</li>
+                            <li>Improve Payment Processing.<br />
+                              - Support for:<br />
+                              Preauthorizations / Refunds / IPN / Tokens<br />
+                              - Standardized statuses
+                            </li>
+                        </ul>
                     </section>
-                    <section data-transition="fade">
-                        <img src="assets/images/payments-auth.png" class="stretch" style="border: 0; padding: 15px;" />
-                        <aside class="notes">
-                            Initially Auth
-                        </aside>
-                    </section>
-                    <section data-transition="fade">
-                        <img src="assets/images/payments-capture.png" class="stretch" style="border: 0; padding: 15px;" />
-                        <aside class="notes">
-                            Capture with an action
-                        </aside>
-                    </section>
-                    <section data-transition="fade">
-                        <img src="assets/images/payments-allocation.png" class="stretch" style="border: 0; padding: 15px;" />
-                        <aside class="notes">
-                            Allocate with an invoice
-                        </aside>
+                    <section>
+                        <h2>Checkout</h2>
+                        <pre><code>// no code yet.</code></pre>
+                        <p>UX improvements</p>
+                        <ul>
+                            <li>Optimize forms experience</li>
+                            <li>Support Anonymous</li>
+                            <li>Checkout Progress</li>
+                            <li>Addressbook</li>
+                        </ul>
                     </section>
                     <section>
                         <h3>Try it out</h3>
                         <img src="assets/images/commerce-backoffice.png" class="stretch" style="border:0; padding: 15px;" />
+                        <a href="https://github.com/commerceguys/commerce">github.com/commerceguys/commerce</a>
                     </section>
                     <section>
                         <h3><a href="https://github.com/commerceguys/commerce" >Contribute on GitHub</a></h3>
@@ -586,9 +621,9 @@ namespace Drupal\commerce\Entity
                 </section>
 
                 <section>
-                    <h2>Questions?</h2>
+                    <h2>Contribute!</h2>
                     <p>
-                        Office hours: Wednesdays at 1PM GMT<br />
+                        Office hours: Wednesdays at 3PM GMT + 2<br />
                         Find us in #drupal-commerce.
                     </p>
                 </section>
